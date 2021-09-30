@@ -112,7 +112,7 @@ class Model_Selector:
                 f1=f1_score(y_test,y_pred,average='weighted')
                 
             model_performance.loc[ind]=[self.model_names[ind],accuracy,precision,recall,f1]
-            print(self.model_names[ind],'model fitted')
+            
             ind+=1
         logging.info('All models fitted')
         self.model_performance=model_performance
