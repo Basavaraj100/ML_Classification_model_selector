@@ -25,8 +25,8 @@ setuptools.setup(
     ],
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
-    python_requires=">=3.7"
-    install_requires=['pandas','numpy','matplotlib','seaborn','sklearn','xgboost','lightgbm','catboost','tqdm']
+    python_requires=">=3.8"
+    install_requires=['pandas','numpy','matplotlib','seaborn','sklearn','xgboost','lightgbm','catboost','tqdm','logging']
 
     ,
 )
