@@ -47,6 +47,7 @@ logging.basicConfig(filename='activity.log',level=logging.INFO,format=logging_st
 
 
 
+
 class Model_Selector:
     '''this class help to select
     suitable model for given data frame.
@@ -89,7 +90,7 @@ class Model_Selector:
         
         else:
             pass
-        
+        print(x_train.shape,x_test.shape) 
        #------- Data frmale of model performance---------
         model_performance=pd.DataFrame({'model_name':[],'accuracy':[],'Precision score':[],'Recall score':[],'f1_score':[]})
         
@@ -101,7 +102,11 @@ class Model_Selector:
             logging.info(f'{self.model_names[ind]} model fitted')
             y_pred=model.predict(x_test.values)
             if y.nunique()==2:
-                accuracy=model.score(y_test,y_pred)
+
+                
+                y_test=np.array(y_test).reshape(-1,1)
+                y_pred=y_pred.reshape(-1,1)
+                accuracy=accuracy_score(y_test,y_pred)
                 precision=precision_score(y_test,y_pred)
                 recall=recall_score(y_test,y_pred)
                 f1=f1_score(y_test,y_pred)
@@ -112,7 +117,7 @@ class Model_Selector:
                 f1=f1_score(y_test,y_pred,average='weighted')
                 
             model_performance.loc[ind]=[self.model_names[ind],accuracy,precision,recall,f1]
-            
+            print(self.model_names[ind],'model fitted')
             ind+=1
         logging.info('All models fitted')
         self.model_performance=model_performance

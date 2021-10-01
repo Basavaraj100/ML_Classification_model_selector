@@ -8,7 +8,7 @@ USER_NAME="Basavaraj100"
 
 setuptools.setup(
     name=f"{PROJECT_NAME}-{USER_NAME}",
-    version="0.0.2",
+    version="0.0.3",
     author=PROJECT_NAME,
     author_email="benkibijali@gmail.com",
     description="It select best classfication model",
